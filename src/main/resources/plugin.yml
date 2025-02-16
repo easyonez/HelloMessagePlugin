@@ -1,0 +1,10 @@
+name: HelloMessagePlugin
+version: '1.0'
+main: me.easyonez.helloMessagePlugin.HelloMessagePlugin
+api-version: '1.21'
+description: Simple spigot 1.21+ plugin for enter and leave messages!
+website: ajmai.me
+commands:
+  flag:
+    description: Enable or disable the plugin
+    usage: "Usage: /<command> [true|false]"
