@@ -8,3 +8,9 @@ commands:
   flag:
     description: Enable or disable the plugin
     usage: "Usage: /<command> [true|false]"
+    permission: hmp.flag
+    permission-message: You don't have permission to change HMP flag
+permissions:
+  hmp.flag:
+    description: Allows to run /flag command
+    default: op

@@ -33,7 +33,10 @@ public class FlagCommand implements CommandExecutor {
                     player.sendMessage(ChatColor.RED + "Usage: /flag [true|false]");
                 }
             }
-        } else { //If sender is not a player
+            }
+
+
+        else { //If sender is not a player
             if(args.length != 1) { //Check if there is the good number of arguments after the command
                 System.out.println("Usage: /flag [true|false]");
             } else {
@@ -48,6 +51,7 @@ public class FlagCommand implements CommandExecutor {
                 }
             }
         }
+
 
 
         return true;
