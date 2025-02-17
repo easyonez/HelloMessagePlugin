@@ -9,7 +9,7 @@ import org.bukkit.entity.Player;
 
 public class FlagCommand implements CommandExecutor {
 
-    HelloMessagePlugin plugin;
+    HelloMessagePlugin plugin; //Instance of the plugin
 
     public FlagCommand(HelloMessagePlugin plugin) {
         this.plugin = plugin;
@@ -17,22 +17,38 @@ public class FlagCommand implements CommandExecutor {
 
 
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-
-        Player player =  (Player) sender;
-
-        if(args.length != 1) {
-            player.sendMessage(ChatColor.RED + "Usage: /flag [true|false]");
-        } else {
-            if(args[0].equalsIgnoreCase("true")) {
-                plugin.setItEnabledFlag(true);
-                player.sendMessage(ChatColor.GREEN + "You have been set the plugin HelloMessagePlugin to true.");
-            } else if(args[0].equalsIgnoreCase("false")) {
-                plugin.setItEnabledFlag(false);
-                player.sendMessage(ChatColor.RED + "You have been set the plugin HelloMessagePlugin to false.");
-            } else {
+        //Check if the sender is a player
+        if(sender instanceof Player) {
+            Player player =  (Player) sender;
+            if(args.length != 1) {  //Check if there is the good number of arguments after the command
                 player.sendMessage(ChatColor.RED + "Usage: /flag [true|false]");
+            } else {
+                if(args[0].equalsIgnoreCase("true")) {
+                    plugin.setItEnabledFlag(true);
+                    player.sendMessage(ChatColor.GREEN + "You have set the plugin HelloMessagePlugin to true.");
+                } else if(args[0].equalsIgnoreCase("false")) {
+                    plugin.setItEnabledFlag(false);
+                    player.sendMessage(ChatColor.RED + "You have set the plugin HelloMessagePlugin to false.");
+                } else {
+                    player.sendMessage(ChatColor.RED + "Usage: /flag [true|false]");
+                }
+            }
+        } else { //If sender is not a player
+            if(args.length != 1) { //Check if there is the good number of arguments after the command
+                System.out.println("Usage: /flag [true|false]");
+            } else {
+                if(args[0].equalsIgnoreCase("true")) {
+                    plugin.setItEnabledFlag(true);
+                    System.out.println("You have set the plugin HelloMessagePlugin to true.");
+                } else if(args[0].equalsIgnoreCase("false")) {
+                    plugin.setItEnabledFlag(false);
+                    System.out.println("You have set the plugin HelloMessagePlugin to false.");
+                } else {
+                    System.out.println("Usage: /flag [true|false]");
+                }
             }
         }
+
 
         return true;
     }
