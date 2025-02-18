@@ -24,11 +24,23 @@ public class FlagCommand implements CommandExecutor {
                 player.sendMessage(ChatColor.RED + "Usage: /flag [true|false]");
             } else {
                 if(args[0].equalsIgnoreCase("true")) {
-                    plugin.setItEnabledFlag(true);
-                    player.sendMessage(ChatColor.GREEN + "You have set the plugin HelloMessagePlugin to true.");
+                    if(plugin.getConfig().getBoolean("itEnabledFlag") == true) {
+                        player.sendMessage(ChatColor.RED + "It's already enabled.");
+                    } else {
+                        plugin.setItEnabledFlag(true);
+                        plugin.getConfig().set("itEnabledFlag", true);
+                        plugin.saveConfig();
+                        player.sendMessage(ChatColor.GREEN + "You have set the plugin HelloMessagePlugin to true.");
+                    }
                 } else if(args[0].equalsIgnoreCase("false")) {
+                    if(plugin.getConfig().getBoolean("itEnabledFlag") == false) {
+                        player.sendMessage(ChatColor.RED + "It's already disabled.");
+                    } else {
                     plugin.setItEnabledFlag(false);
+                    plugin.getConfig().set("itEnabledFlag", false);
+                    plugin.saveConfig();
                     player.sendMessage(ChatColor.RED + "You have set the plugin HelloMessagePlugin to false.");
+                    }
                 } else {
                     player.sendMessage(ChatColor.RED + "Usage: /flag [true|false]");
                 }
@@ -41,10 +53,17 @@ public class FlagCommand implements CommandExecutor {
                 System.out.println("Usage: /flag [true|false]");
             } else {
                 if(args[0].equalsIgnoreCase("true")) {
+                    if(plugin.getConfig().get("itEnabledFlag") == "true") {
+
+                    }
                     plugin.setItEnabledFlag(true);
+                    plugin.getConfig().set("itEnabledFlag", true);
+                    plugin.saveConfig();
                     System.out.println("You have set the plugin HelloMessagePlugin to true.");
                 } else if(args[0].equalsIgnoreCase("false")) {
                     plugin.setItEnabledFlag(false);
+                    plugin.getConfig().set("itEnabledFlag", false);
+                    plugin.saveConfig();
                     System.out.println("You have set the plugin HelloMessagePlugin to false.");
                 } else {
                     System.out.println("Usage: /flag [true|false]");

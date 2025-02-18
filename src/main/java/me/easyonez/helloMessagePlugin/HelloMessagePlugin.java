@@ -10,7 +10,7 @@ public final class HelloMessagePlugin extends JavaPlugin {
     private static HelloMessagePlugin plugin;    //Instance of this plugin
 
 
-    private boolean isItEnabledFlag = true; //Flag that is loaded from file (or changed in-game by command /flag "boolean")
+    private boolean isItEnabledFlag; //Flag that is loaded from file (or changed in-game by command /flag "boolean")
 
     //get_instance return the instance of the current plugin
     HelloMessagePlugin get_instance() {
@@ -32,7 +32,9 @@ public final class HelloMessagePlugin extends JavaPlugin {
         // Plugin startup logic
 
         plugin = this;  //Instance of this plugin
-
+        getConfig().options().copyDefaults();
+        saveDefaultConfig();
+        setItEnabledFlag(getConfig().getBoolean("itEnabled"));
         getCommand("flag").setExecutor(new FlagCommand(this));   //Registers flag command
 
 
