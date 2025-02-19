@@ -7,10 +7,20 @@ website: ajmai.me
 commands:
   flag:
     description: Enable or disable the plugin
-    usage: "Usage: /<command> [true|false]"
+    usage: "/<command> [true | false]"
     permission: hmp.flag
     permission-message: You don't have permission to change HMP flag
+  setmessage:
+    description: Set join or leave message that are sent whenever someone enter or leave the server
+    usage: "/<command> [join | leave] <message>"
+    permission: hmp.setmessage
+    permission-message: You don't have permission to change HMP Join/Leave messages
 permissions:
   hmp.flag:
     description: Allows to run /flag command
     default: op
+  hmp.setmessage:
+    description: Allows to run /setmessage command
+    default: op
+
+
