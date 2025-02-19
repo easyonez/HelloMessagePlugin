@@ -24,20 +24,20 @@ public class FlagCommand implements CommandExecutor {
                 player.sendMessage(ChatColor.RED + "Usage: /flag [true|false]");
             } else {
                 if(args[0].equalsIgnoreCase("true")) {
-                    if(plugin.getConfig().getBoolean("itEnabledFlag") == true) {
+                    if(plugin.getConfig().getBoolean("PluginEnabled") == true) {
                         player.sendMessage(ChatColor.RED + "It's already enabled.");
                     } else {
                         plugin.setItEnabledFlag(true);
-                        plugin.getConfig().set("itEnabledFlag", true);
+                        plugin.getConfig().set("PluginEnabled", true);
                         plugin.saveConfig();
                         player.sendMessage(ChatColor.GREEN + "You have set the plugin HelloMessagePlugin to true.");
                     }
                 } else if(args[0].equalsIgnoreCase("false")) {
-                    if(plugin.getConfig().getBoolean("itEnabledFlag") == false) {
+                    if(plugin.getConfig().getBoolean("PluginEnabled") == false) {
                         player.sendMessage(ChatColor.RED + "It's already disabled.");
                     } else {
                     plugin.setItEnabledFlag(false);
-                    plugin.getConfig().set("itEnabledFlag", false);
+                    plugin.getConfig().set("PluginEnabled", false);
                     plugin.saveConfig();
                     player.sendMessage(ChatColor.RED + "You have set the plugin HelloMessagePlugin to false.");
                     }

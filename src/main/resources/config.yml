@@ -1,2 +1,8 @@
 #Set this to true if you want the plugin being enabled otherwise false.
-itEnabledFlag: true
+PluginEnabled: true
+
+#You can modify the messages when someone join or leave the server by changing join-message and leave-message
+#Use %player% as place-holder for player's name.
+message:
+  join-message: '&aThe player &e%player% &ahas joined the server!'
+  leave-message: '&cThe player &e%player% &chas left the server!'

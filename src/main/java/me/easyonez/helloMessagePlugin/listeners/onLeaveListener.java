@@ -20,7 +20,9 @@ public class onLeaveListener  implements Listener {
     public void onLeave(PlayerQuitEvent e) {
         if(plugin.isItEnabledFlag()) {
             Player player = e.getPlayer();
-            e.setQuitMessage(ChatColor.RED + "The player " + ChatColor.YELLOW + player.getName() + ChatColor.RED + " has left the game!");
+            String leaveMessage = plugin.getConfig().getString("message.leave-message").replace("%player%", player.getName());
+            leaveMessage = ChatColor.translateAlternateColorCodes('&', leaveMessage);
+            e.setQuitMessage(leaveMessage);
         }
     }
 }

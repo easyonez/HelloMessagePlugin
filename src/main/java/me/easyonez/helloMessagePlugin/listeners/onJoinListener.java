@@ -7,6 +7,8 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 
+import java.util.Objects;
+
 public class onJoinListener implements Listener {
 
     //Those two are needed to get the isItEnabledFlag from the instance of the plugin
@@ -19,7 +21,9 @@ public class onJoinListener implements Listener {
     public void onJoin(PlayerJoinEvent e) {
         if(plugin.isItEnabledFlag()) {
             Player player = e.getPlayer();
-            e.setJoinMessage(ChatColor.GREEN + "The player " + ChatColor.YELLOW + player.getName() + ChatColor.GREEN + " has joined the game!");
+            String JoinMessage = Objects.requireNonNull(plugin.getConfig().getString("message.join-message")).replace("%player%", player.getName());
+            JoinMessage = ChatColor.translateAlternateColorCodes('&', JoinMessage);
+            e.setJoinMessage(JoinMessage);
         }
     }
 

@@ -5,17 +5,12 @@ import me.easyonez.helloMessagePlugin.listeners.onJoinListener;
 import me.easyonez.helloMessagePlugin.listeners.onLeaveListener;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public final class HelloMessagePlugin extends JavaPlugin {
+import java.util.Objects;
 
-    private static HelloMessagePlugin plugin;    //Instance of this plugin
+public final class HelloMessagePlugin extends JavaPlugin {
 
 
     private boolean isItEnabledFlag; //Flag that is loaded from file (or changed in-game by command /flag "boolean")
-
-    //get_instance return the instance of the current plugin
-    HelloMessagePlugin get_instance() {
-        return plugin;
-    }
 
     //Get isItEnabledFlag
     public boolean isItEnabledFlag() {
@@ -31,11 +26,11 @@ public final class HelloMessagePlugin extends JavaPlugin {
     public void onEnable() {
         // Plugin startup logic
 
-        plugin = this;  //Instance of this plugin
+        //Instance of this plugin
         getConfig().options().copyDefaults();
         saveDefaultConfig();
-        setItEnabledFlag(getConfig().getBoolean("itEnabled"));
-        getCommand("flag").setExecutor(new FlagCommand(this));   //Registers flag command
+        setItEnabledFlag(getConfig().getBoolean("PluginEnabled"));
+        Objects.requireNonNull(getCommand("flag")).setExecutor(new FlagCommand(this));   //Registers flag command
 
 
         //Registers two event listeners, in this case onJoinListener and onLeaveListener
