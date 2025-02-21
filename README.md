@@ -1,5 +1,9 @@
 # HelloMessagePlugin
 ![Capture d'écran 2025-02-18 140306](https://github.com/user-attachments/assets/b9e7f56b-1afb-47c1-b1b6-a8ac43e48ee7)
+
+## Download
+Spigotmc.org to download the plugin: [Click here](https://www.spigotmc.org/resources/hellomessageplugin.122707/)
+
 ## Screenshot
 Soon there...
 ## Commands availables:
