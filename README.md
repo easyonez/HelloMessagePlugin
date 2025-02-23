@@ -8,7 +8,7 @@ Spigotmc.org to download the plugin: [Click here](https://www.spigotmc.org/resou
 Soon there...
 ## Commands availables:
 - /flag [true | false] : To set if you want the plugin to work or not!
-- /setmessage [join | leave] <message>
+- /setmessage [join | leave] < message >
 
 ## Permissions:
 - hmp.flag : Allow to use /flag
